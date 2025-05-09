@@ -1,0 +1,47 @@
+body {
+    height: 100vh;
+
+    padding: 0;
+    margin: 0;
+
+    display: flex;
+    justify-content: center;
+    place-items: center;
+
+    background-image: linear-gradient(to bottom,rgb(0, 0, 0), rgb(34, 34, 34), rgb(50, 50, 50), rgb(75, 75, 75), rgb(100, 99, 99), rgb(125, 125, 125), rgb(175, 175, 175));
+    background-repeat: no-repeat;
+    
+}
+
+body .error {
+    padding: 15px 50px;
+    border: 2.5px solid transparent;
+    border-image: linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%);
+    border-image-slice: 1;
+
+
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto auto;
+
+    justify-content: center;
+    place-items: center;
+
+    color: white;
+    font-size: 50px
+}
+
+body .error a {
+    color: white;
+    font-size: 25px;
+    text-decoration: none;
+
+    transition: color .25s ease-in-out;
+    transform: all;
+}
+
+body .error a:hover {
+    transform: scale(1.015);
+    color: rgb(165, 165, 245);
+}
+    

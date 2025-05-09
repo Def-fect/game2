@@ -1,0 +1,109 @@
+/* === Button Style === */
+.button-30 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  padding: 0 16px;
+  margin: 5px 0;
+  box-sizing: border-box;
+
+  background-color: #FCFCFD;
+  color: #36395A;
+  font-family: "Iceberg", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1;
+  text-decoration: none;
+
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+
+  box-shadow:
+    rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px,
+    #D6D6E7 0 -3px 0 inset;
+
+  transition:
+    box-shadow 0.15s ease,
+    transform 0.15s ease;
+  will-change: box-shadow, transform;
+  touch-action: manipulation;
+}
+
+.button-30:focus {
+box-shadow: #D6D6E7 0 0 0 1.5px inset,
+            rgba(45, 35, 66, 0.4) 0 2px 4px,
+            rgba(45, 35, 66, 0.3) 0 7px 13px -3px,
+            #D6D6E7 0 -3px 0 inset;
+}
+
+.button-30:hover {
+box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
+            rgba(45, 35, 66, 0.3) 0 7px 13px -3px,
+            #D6D6E7 0 -3px 0 inset;
+transform: translateY(-2px);
+}
+
+.button-30:active {
+box-shadow: #D6D6E7 0 3px 7px inset;
+transform: translateY(2px);
+}
+
+/* Dialogin tyyli */
+dialog {
+  border: none;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #333;
+  color: white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  width: 300px;
+}
+
+dialog::backdrop {
+  background-image: linear-gradient(to bottom,rgb(14, 13, 13), rgba(9, 9, 9, 0.9), rgba(10, 10, 10, 0.6));
+}
+
+dialog h1, dialog h2 {
+  text-align: center;
+  margin-top: 0;
+  color: #FCFCFD;
+}
+
+.menu-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input {
+  padding: 8px;
+  border-radius: 4px;
+  border: none;
+}
+
+.form-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.form-buttons .button-30 {
+  flex: 1;
+}
+
+#loadStatus {
+  text-align: center;
+  margin-top: 15px;
+  color: #ff6b6b;
+  min-height: 20px;
+}

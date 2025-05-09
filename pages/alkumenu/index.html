@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Metadata -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pelin Alkumenu</title>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="alkumenu.css" />
+  <link rel="stylesheet" href="game.css" />
+
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Iceberg&family=Wallpoet&display=swap" />
+
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/0617b42630.js" crossorigin="anonymous" defer></script>
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+  <!-- Leaflet JS -->
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+    defer
+  ></script>
+
+  <!-- Game scripts -->
+  <script src="maingame.js" defer></script>
+  <script src="./scripts/loadgame.js" defer></script>
+  <script src="./scripts/newgame.js" defer></script>
+  <script src="./scripts/savenquit.js" defer></script>
+  <script src="utility.js" defer></script>
+
+</head>
+
+<body class="preload">
+  <header class="navigation">
+    <nav title="dropdown">
+      <a href="#">User <i class="fa-solid fa-caret-down"></i></a>
+      <li class="dropdown">
+        <nav>Balance: <span id="currentBalance">0</span></nav>
+        <nav><a href="#">Statistics</a></nav>
+        <nav><a href="#">Leaderboards</a></nav>
+      </li>
+    </nav>
+    <nav><a href="#">Feedback</a></nav>
+    <img src="" alt="Logo" />
+    <nav><a href="#">Game</a></nav>
+    <nav><a href="#">About</a></nav>
+  </header>
+
+<main>
+    <i class="fa-solid fa-caret-down"></i>
+    <div id="map"></div>
+</main>
+
+<footer class="">
+    <article>1</article>
+</footer>
+
+    <!-- Päävalikko -->
+    <dialog id="mainMenu">
+        <h1>Game Menu</h1>
+        <div class="menu-options">
+            <button class="button-30" id="newGame">New Game</button>
+            <button class="button-30" id="loadGame">Load Game</button>
+            <button class="button-30" id="saveAndQuit">Save & Quit</button>
+            <button class="button-30" id="quitGame">Quit Game</button>
+        </div>
+    </dialog>
+
+    <!-- New Game -lomake -->
+    <dialog id="newGameDialog">
+        <h2>Uusi Peli</h2>
+        <form id="newGameForm">
+            <label for="username">Käyttäjänimi:</label>
+            <input type="text" id="username" name="username" placeholder="Username">
+            <label for="password">Salasana:</label>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+            <p id="newGameStatus" class="status-message"></p>
+            <div class="form-buttons">
+                <button type="submit" class="button-30">Aloita Peli</button>
+                <button type="button" class="button-30" id="cancelNewGame">Peruuta</button>
+            </div>
+        </form>
+    </dialog>
+
+    <!-- Load Game -lomake -->
+    <dialog id="loadGameDialog">
+        <h2>Lataa Peli</h2>
+        <form id="loadGameForm">
+            <label for="loadUsername">Käyttäjänimi:</label>
+            <input type="text" id="loadUsername" name="username" required>
+            <label for="loadPassword">Salasana:</label>
+            <input type="password" id="loadPassword" name="password" required>
+            <div class="form-buttons">
+                <button type="submit" class="button-30">Lataa</button>
+                <button type="button" class="button-30" id="cancelLoadGame">Peruuta</button>
+            </div>
+        </form>
+        <p id="loadStatus"></p>
+    </dialog>
+</body>
+</html>

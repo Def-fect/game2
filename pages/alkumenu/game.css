@@ -1,0 +1,470 @@
+/*General Settings for body*/
+body {
+    padding: 0;
+    margin: 0;
+    font-family: "Iceberg", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    font-size: small;
+}
+
+/*Font Awesome Elements*/
+main i.fa-caret-down, i.fa-caret-up  {
+    padding: 10px 0;
+    width: 100%;
+    position: fixed;
+    text-align: center;
+    font-size: 25px;
+}
+
+/*Navigation Menu & Dropdown (User)*/
+.navigation {
+    height: auto;
+    display: none;
+    transition: all .5s ease-in-out;
+}
+
+.navigation-grid  {
+    height: 59px;
+    padding: 30px 15px;
+
+    border-style: none none solid none;
+    border-width: .1px;
+    box-shadow: 1px 1px 2px rgb(67, 67, 67);
+
+
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    grid-template-rows: auto;
+
+    justify-content: space-evenly;
+
+
+}
+
+.navigation-grid nav a {
+    text-decoration: none;
+    color: black;
+    transition: color .2s;
+}
+
+.navigation-grid nav a:hover {
+color: red;
+}
+
+nav[title='dropdown']:hover a {
+    width: fit-content;
+}
+
+.dropdown {
+  padding: 5px 0;
+  width: fit-content;
+  display: none;
+  position: absolute;
+}
+
+.dropdown nav {
+  padding: 0 0 5px 0;
+}
+
+nav[title="dropdown"]:hover .dropdown {
+  display: block;
+}
+
+nav[title="dropdown"] .dropdown nav:hover {
+  cursor: pointer;
+  transform: scale(1.015);
+}
+
+/*Main Content + Map*/
+main {
+    width: 100%;
+    height: 1000px;
+
+    border-style: solid;
+
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    justify-content: space-between;
+
+    background-image: url(../../pictures/wallpapersden.com_game-of-thrones-map-hd-wallpaper_2560x1440.jpg);
+    color: white;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+main div#map {
+    margin-top: 10px;
+
+    width: 1000px;
+    height: 750px;
+
+    border-bottom-style: solid;
+    border-width: .1px;
+
+    position: absolute;
+
+    font-size: 25px;
+    text-align: center;
+    place-content: center;
+}
+
+/* Travel Button */
+button.travel {
+  padding: 5px 10px;
+  border: 0.1px solid rgb(94, 248, 166);
+  border-radius: 5px;
+  font-size: 20px;
+  transition: font-size 0.1s ease-in-out;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #333;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button.travel:hover {
+  background-color: rgb(66, 248, 172);
+  font-size: 21px;
+}
+
+.current-airport-icon {
+    color: #2ecc71;
+    font-size: 24px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.destination-marker {
+    color: #3498db;
+    font-size: 20px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.correct-marker {
+    color: #2ecc71;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.incorrect-marker {
+    color: #e74c3c;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.plane-icon {
+    color: #2ecc71;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.destination-airport-icon {
+    background-color: #2196F3; /* Blue color for destinations */
+    border-radius: 50%;
+    border: 2px solid white;
+    color: white;
+    text-align: center;
+    line-height: 30px;
+    font-weight: bold;
+}
+
+/* Plane Animation Styles */
+.plane-icon {
+    color: #e74c3c;
+    font-size: 24px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    transform-origin: center center;
+    z-index: 1000;
+}
+
+.plane-icon i.fa-plane {
+    display: block;
+    text-align: center;
+    transition: transform 0.1s ease-out;
+}
+
+/* Travel Button States */
+button.travel[disabled] {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+button.start-quiz {
+    padding: 5px 10px;
+    border: 0.1px solid rgb(248, 227, 94);
+    border-radius: 5px;
+    font-size: 20px;
+    transition: font-size 0.1s ease-in-out;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #333;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button.start-quiz:hover {
+    background-color: rgb(248, 227, 94);
+    font-size: 21px;
+}
+
+.fa-spin {
+    animation: fa-spin 1s infinite linear;
+}
+
+@keyframes fa-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Flight Path Animation */
+.leaflet-interactive {
+    stroke-dasharray: 10, 10;
+    stroke-dashoffset: 1000;
+    animation: none;
+    z-index: 500 !important;
+}
+
+@keyframes dash {
+    to {
+        stroke-dashoffset: -1000;
+    }
+}
+
+b.airport-info {
+    padding: 5px;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+b.airport-info:hover {
+    text-decoration: underline;
+    color: rgb(113, 246, 109);
+    cursor: pointer;
+}
+
+b.airport-info-name {
+    font-size: 25px;
+    font-weight: 700;
+
+}
+
+article.real-time-info  {
+    height: fit-content; 
+    
+    padding: 10px;
+    
+    border: .1px solid black;
+    border-radius: 10px;
+    box-shadow: 1px 1px 2px 1px rgb(182, 241, 180);
+
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto;
+    column-gap: 20px;
+    justify-content: space-between;
+
+}
+
+article.real-time-info:hover {
+    cursor: help;
+    background-color: rgb(183, 245, 250);
+    box-shadow: 1px 1px 2px 1px rgb(36, 36, 36)
+}
+
+/*Quiz Styling*/
+
+.quiz-dialog {
+    height: fit-content;
+    width: 300px;
+    
+    padding: 10px;
+
+    border-style: solid;
+    border-width: 2px;
+    border-color: transparent;
+    border-image: linear-gradient(to bottom right,rgb(248, 20, 20) 0%, #f6a7a7 25%, #ffffff 50%, #f75858 75%, #fc0c0c 100%); 
+    border-image-slice: 1;
+    
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto auto;
+
+    justify-content: center;
+    place-items: center;
+}
+
+.quiz-answer {
+    width: 200px;
+    padding: 10px;
+}
+
+.quiz-submit {
+    width: 200px;
+    
+    padding: 10px;
+
+    background-color: rgb(114, 247, 121);
+    color: white;
+
+    font-size: 15px;
+    transition: all .2s ease-in-out;
+}
+
+.quiz-submit:hover {
+    background-image: linear-gradient(to right, rgb(2, 209, 2), rgb(33, 130, 33), rgb(60, 114, 60));
+    cursor: pointer;
+    font-size: 17.5px;
+}
+
+.quiz-form {
+    width: 250px;
+    
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
+
+    justify-content: center;
+    place-items: center;
+}
+
+.quiz-balance-addition {
+    width: 200px;
+    
+    padding: 10px;
+    
+    text-align: center;
+}
+
+/*Footer (Socials etc.)*/
+footer {
+    padding: 50px 0;
+
+    border-style: solid none none none;
+    border-width: .1px;
+    box-shadow: 1px 1px 1px red;
+
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto;
+
+    justify-content: center;
+}
+
+/*Reactivity for different screen sizes*/
+@media (min-width: 300px) {
+
+    b.airport-info {
+        padding: 5px;
+        font-size: 10px;
+        font-weight: 400;
+    }
+    
+    b.airport-info-name {
+        font-size: 20px;
+        font-weight: 700;
+    
+    }
+
+    article.real-time-info  {
+        height: fit-content; 
+        
+        padding: 10px;
+        
+        border: .1px solid black;
+        border-radius: 10px;
+        box-shadow: 1px 1px 2px 1px rgb(182, 241, 180);
+    
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-template-rows: auto;
+        column-gap: 20px;
+        justify-content: space-between;
+        
+        font-size: 15px;
+    }
+}
+
+@media (min-width: 500px) {
+    .navigation-grid nav a {
+        text-decoration: none;
+        color: rgb(232, 244, 6);
+    }
+}
+
+@media (min-width: 700px) {
+    .navigation-grid nav a {
+        text-decoration: none;
+        color: rgb(111, 249, 106);
+    }
+}
+
+@media (min-width: 900px) {
+    .navigation-grid nav a {
+        text-decoration: none;
+        color: rgb(244, 6, 6);
+    }
+}
+
+@media (min-width: 1100px) {
+    .navigation-grid nav a {
+        text-decoration: none;
+        color: rgb(228, 244, 6);
+    }
+}
+
+@media (min-width: 1300px) {
+    .navigation-grid nav a {
+        text-decoration: none;
+        color: rgb(30, 244, 6);
+    }
+}
+
+@media (min-width: 1500px) {
+    .navigation-grid nav a {
+        text-decoration: none;
+        color: rgb(244, 6, 6);
+    }
+
+    
+}
+
+@media (min-width: 1700px) {
+    .navigation-grid nav {
+        text-decoration: none;
+        color: rgb(236, 244, 6);
+    }
+}
+
+@media (min-width: 1900px) {
+    .navigation-grid nav {
+        font-size: xx-large;
+        text-decoration: none;
+        color: rgb(6, 244, 6);
+    }
+
+    .navigation-grid {
+        height: 150px;
+    }
+}
+
+@media (min-width: 2100px) {
+    .navigation-grid nav a {
+        text-decoration: none;
+        color: rgb(244, 6, 6);
+    }
+}
+
+@media (min-width: 2300px) {
+    .navigation-grid nav a {
+        text-decoration: none;
+        color: rgb(236, 244, 6);
+    }
+}
+
+@media (min-width: 2500px) {
+    .navigation-grid nav a {
+        text-decoration: none;
+        color: rgb(18, 244, 6);
+    }
+}
